@@ -1,7 +1,10 @@
-export function List(): JSX.Element {
+import { PropsTask } from "../interfaces/props";
+export function List({ task }: PropsTask): JSX.Element {
   return (
     <div>
-      <h2>List</h2>
+      {task.map((task) => {
+        return <h1>{task.title}</h1>;
+      })}
     </div>
   );
 }

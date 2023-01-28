@@ -1,5 +1,6 @@
 import { Props } from "./interfaces/props";
 import { tasks } from "./interfaces/task";
+import {Navbar} from './components/Navbar'
 import { useState } from "react";
 
 export default function App({ title }: Props) {
@@ -12,11 +13,11 @@ export default function App({ title }: Props) {
     },
   ]);
   return (
-    <div>
-      <h1>{title.toUpperCase()}</h1>
+    <div className="bg-dark" style={{ height: "100vh" }}>
+    <Navbar title="React & Typescript 💜"/>
       <div>
-      {task.map((task) => {
-          return <h1>{task.title}</h1>
+        {task.map((task) => {
+          return <h1>{task.title}</h1>;
         })}
       </div>
     </div>
