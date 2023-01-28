@@ -1,10 +1,9 @@
 import { PropsTask } from "../interfaces/props";
+import { Card } from "./Card";
 export function List({ task }: PropsTask): JSX.Element {
   return (
-    <div>
-      {task.map((task) => {
-        return <h1>{task.title}</h1>;
-      })}
-    </div>
+    <>
+      <Card task={task} />
+    </>
   );
 }
