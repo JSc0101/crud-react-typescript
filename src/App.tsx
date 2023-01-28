@@ -5,7 +5,7 @@ import { Navbar } from "./components/Navbar";
 import { List } from "./components/List";
 import { Form } from "./components/Form";
 
-export default function App({ title }: Props) {
+export default function App({ title }: Props): JSX.Element {
   const [task, setTask] = useState<Array<tasks>>([
     {
       id: 1,

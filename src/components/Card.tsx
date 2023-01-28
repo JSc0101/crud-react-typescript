@@ -4,9 +4,9 @@ import { Button } from "./Button";
 export function Card({ task }: PropsTask): JSX.Element {
   return (
     <>
-      {task.map((task) => {
+      {task.map((task, index) => {
         return (
-          <div className="card col-md-5">
+          <div className="card col-md-5" key={index}>
             <div className="card-title">
               <h2>{task.title}</h2>
             </div>
