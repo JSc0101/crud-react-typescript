@@ -3,5 +3,5 @@ export interface Props {
   title: string;
 }
 export interface PropsTask {
-  task: tasks[];
+  task: Array<tasks>;
 }

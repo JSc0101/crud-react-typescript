@@ -1,11 +1,12 @@
+import { useState } from "react";
 import { Props } from "./interfaces/props";
 import { tasks } from "./interfaces/task";
 import { Navbar } from "./components/Navbar";
 import { List } from "./components/List";
-import { useState } from "react";
+import { Form } from "./components/Form";
 
 export default function App({ title }: Props) {
-  const [task, setTask] = useState<tasks[]>([
+  const [task, setTask] = useState<Array<tasks>>([
     {
       id: 1,
       title: "Learn react",
@@ -17,8 +18,15 @@ export default function App({ title }: Props) {
   return (
     <div className="bg-dark" style={{ height: "100vh" }}>
       <Navbar title="React & Typescript 💜" />
-      <main>
-        <List task={task} />
+      <main className="container">
+        <div className="row">
+          <div className="col-md-4">
+            <Form />
+          </div>
+          <div className="col-md-8">
+            <List task={task} />
+          </div>
+        </div>
       </main>
     </div>
   );

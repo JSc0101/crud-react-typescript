@@ -1,21 +1,24 @@
 import { PropsTask } from "../interfaces/props";
+import { Button } from "./Button";
 
 export function Card({ task }: PropsTask): JSX.Element {
   return (
-    <div className="card">
+    <>
       {task.map((task) => {
         return (
-          <>
-            <div className="card-header">
+          <div className="card col-md-5">
+            <div className="card-title">
               <h2>{task.title}</h2>
             </div>
             <div className="card-body">
               <p>{task.description}</p>
-              <span>{task.title}</span>
             </div>
-          </>
+            <div>
+              <Button />
+            </div>
+          </div>
         );
       })}
-    </div>
+    </>
   );
 }
