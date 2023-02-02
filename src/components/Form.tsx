@@ -5,17 +5,19 @@ import { ChangeType } from "../types/element";
 interface Porps {
   addTask: (task: tasks) => void;
 }
+const initialState = {
+  title: "",
+  description: "",
+};
 export function Form({ addTask }: Porps): JSX.Element {
-  const [ts, setTask] = useState({
-    title: "",
-    description: "",
-  });
+  const [ts, setTask] = useState(initialState);
   const handleInputChange = ({ target: { name, value } }: ChangeType) => {
     setTask({ ...ts, [name]: value });
   };
   const hanldeAddTask = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    addTask(ts)
+    addTask(ts);
+    setTask(initialState);
   };
   return (
     <div className="card card-body bg-secondary text-dark">
@@ -27,6 +29,7 @@ export function Form({ addTask }: Porps): JSX.Element {
           name="title"
           className="form-control mb-3 rounded-0 shadow-none border-0"
           onChange={handleInputChange}
+          value={ts.title}
         />
 
         <label htmlFor="Description">Description</label>
@@ -36,6 +39,7 @@ export function Form({ addTask }: Porps): JSX.Element {
           className="form-control mb-3 rounded-0 shadow-none border-0"
           rows={3}
           onChange={handleInputChange}
+          value={ts.description}
         ></textarea>
 
         <button type="submit" className="btn btn-primary">

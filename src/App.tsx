@@ -8,7 +8,7 @@ import { Form } from "./components/Form";
 export default function App({ title }: Props): JSX.Element {
   const [task, setTask] = useState<Array<tasks>>([
     {
-      id: 1,
+      id: 0,
       title: "Learn react",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque officiis nihil iusto atque ab enim aperiam saepe voluptas nisi perspiciatis. Distinctio, voluptatibus dolor obcaecati eveniet voluptates qui quaerat rerum expedita.",
@@ -17,7 +17,7 @@ export default function App({ title }: Props): JSX.Element {
   ]);
 
   const newTask = (tsk: tasks) => {
-    setTask([...task, tsk])
+    setTask([...task, {...tsk, id: task.length, completed: false}])
   }
   return (
     <div className="bg-dark" style={{ height: "100vh" }}>
