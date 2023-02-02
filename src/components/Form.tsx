@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import { tasks } from "../interfaces/task";
 import { ChangeType } from "../types/element";
 
-export function Form(): JSX.Element {
+interface Porps {
+  addTask: (task: tasks) => void;
+}
+export function Form({ addTask }: Porps): JSX.Element {
   const [ts, setTask] = useState({
     title: "",
     description: "",
@@ -9,9 +13,13 @@ export function Form(): JSX.Element {
   const handleInputChange = ({ target: { name, value } }: ChangeType) => {
     setTask({ ...ts, [name]: value });
   };
+  const hanldeAddTask = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    addTask(ts)
+  };
   return (
     <div className="card card-body bg-secondary text-dark">
-      <form>
+      <form onSubmit={hanldeAddTask}>
         <label htmlFor="title">Title</label>
         <input
           type="text"
